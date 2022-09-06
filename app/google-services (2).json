@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "237735256778",
+    "project_id": "baigan-256d8",
+    "storage_bucket": "baigan-256d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237735256778:android:8080c5a9d81296af50ca33",
+        "android_client_info": {
+          "package_name": "com.example.baigan_theprojectmanagertool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237735256778-9luu5i2m45iqprnoni695phhu8mc87sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADjMXsRWuKgiGNzZI7fkyptQPfVBHIMNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237735256778-9luu5i2m45iqprnoni695phhu8mc87sb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

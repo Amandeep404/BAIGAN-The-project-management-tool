@@ -1,7 +1,9 @@
 package com.example.baigan_theprojectmanagertool.activities.dsvvsv.firebase
 
 import android.app.Activity
+import android.widget.Toast
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.activities.MainActivity
+import com.example.baigan_theprojectmanagertool.activities.dsvvsv.activities.MyProfileActivity
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.activities.SignInActivity
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.activities.SignUpActivity
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.models.User
@@ -22,7 +24,20 @@ class FireStoreClass {
             }
     }
 
-    fun signInUser(activity : Activity){
+    fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String, Any>){
+        mFirestore.collection(Constants.USERS)
+            .document(getCurrentUserId())
+            .update(userHashMap)
+            .addOnSuccessListener {
+                Toast.makeText( activity, "Profile updated successfully", Toast.LENGTH_SHORT).show()
+                activity.profileUpdateSuccess()
+            }.addOnFailureListener{
+                activity.hideProgressBar()
+                Toast.makeText( activity, "Unable to update profile", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    fun loadUserData(activity : Activity){
 
         mFirestore.collection(Constants.USERS)
             .document(getCurrentUserId())
@@ -35,6 +50,9 @@ class FireStoreClass {
                         }
                         is MainActivity ->{
                             activity.updateNavigationUserDetails(loggedInUser)
+                        }
+                        is MyProfileActivity ->{
+                            activity.setUserProfile(loggedInUser)
                         }
                     }
             }

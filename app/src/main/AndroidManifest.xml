@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.baigan_theprojectmanagertool">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,9 +16,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.BaiganTheProjectManagerTool"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.dsvvsv.activities.CreateBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.dsvvsv.activities.MyProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.dsvvsv.activities.BaseActivity"
             android:exported="false" />
@@ -40,11 +49,9 @@
         </activity>
         <activity
             android:name=".activities.dsvvsv.activities.MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:exported="true" >
-
-        </activity>
+            android:theme="@style/Theme.Design.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

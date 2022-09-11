@@ -39,7 +39,7 @@ class SignInActivity : BaseActivity() {
             showProgressDialog("Signing You In  ")
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
                 if (task.isSuccessful){
-                    FireStoreClass().signInUser(this)
+                    FireStoreClass().loadUserData(this)
                 }
             }.addOnFailureListener{exception ->
                 Toast.makeText(this, "Invalid Username or password", Toast.LENGTH_LONG).show()

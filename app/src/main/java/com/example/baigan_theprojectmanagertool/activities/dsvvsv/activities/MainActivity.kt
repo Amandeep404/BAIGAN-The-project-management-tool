@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.baigan_theprojectmanagertool.R
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.firebase.FireStoreClass
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.models.User
+import com.example.baigan_theprojectmanagertool.activities.dsvvsv.utils.Constants
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +19,8 @@ import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener{
+
+    private lateinit var mUserName : String
 
     companion object{
         const val MY_PROFILE_REQUEST_CODE : Int = 11
@@ -33,7 +36,9 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         FireStoreClass().loadUserData(this)
 
         addBoardBtn.setOnClickListener{
-            startActivity(Intent(this, CreateBoardActivity::class.java))
+           val intent=  Intent(this, CreateBoardActivity::class.java)
+            intent.putExtra(Constants.NAME, mUserName)
+            startActivity(intent)
         }
 
     }
@@ -90,6 +95,9 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
     }
 
     fun updateNavigationUserDetails(user: User) {
+
+        mUserName = user.name
+
         Glide
             .with(this)
             .load(user.image)

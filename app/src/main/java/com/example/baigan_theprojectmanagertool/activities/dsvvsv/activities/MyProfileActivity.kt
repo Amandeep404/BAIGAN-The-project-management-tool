@@ -81,7 +81,6 @@ class MyProfileActivity : BaseActivity() {
                             e.printStackTrace()
                             Toast.makeText(this, "Failed to load image from gallery", Toast.LENGTH_SHORT).show()
                         }
-
                 }
             }
         }
@@ -187,8 +186,8 @@ class MyProfileActivity : BaseActivity() {
     }
 
     companion object{
-        private const val pickImage = 1
-        private const val READ_STORAGE_PERMISSION_CODE = 2
+        const val pickImage = 1
+        const val READ_STORAGE_PERMISSION_CODE = 2
 
     }
 

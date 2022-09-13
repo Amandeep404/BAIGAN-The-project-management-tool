@@ -4,8 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.core.view.iterator
 import com.bumptech.glide.Glide
 import com.example.baigan_theprojectmanagertool.R
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.firebase.FireStoreClass
@@ -76,6 +76,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
         when(item.itemId){
             R.id.nav_my_profile -> {
                 startActivityForResult(Intent(this, MyProfileActivity::class.java), MY_PROFILE_REQUEST_CODE )

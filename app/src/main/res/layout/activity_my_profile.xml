@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/discord_light_black"
     tools:context=".activities.dsvvsv.activities.MyProfileActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -65,15 +66,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:textColorHint="@color/white"
         android:layout_marginTop="60dp"
-        app:boxBackgroundColor="@color/white"
-        app:hintTextColor="@color/discord_light_black"
+        app:boxBackgroundColor="@color/discord_light_black"
+        app:hintTextColor="@color/discord_purple"
         app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etProfileName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
 
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,9 +92,11 @@
         android:hint="Email"
         android:focusableInTouchMode="false"
         android:layout_marginTop="30dp"
-        app:boxBackgroundColor="@color/white"
-        app:hintTextColor="@color/discord_light_black"
+        app:boxBackgroundColor="@color/discord_light_black"
+        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
         app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etProfileEmail"
@@ -111,14 +117,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="Mobile"
         android:layout_marginTop="30dp"
-        app:boxBackgroundColor="@color/white"
-        app:hintTextColor="@color/discord_light_black"
+        android:textColorHint="@color/white"
+        app:boxBackgroundColor="@color/discord_light_black"
+        app:hintTextColor="@color/white"
         app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etProfileMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:inputType="number"
             />
     </com.google.android.material.textfield.TextInputLayout>

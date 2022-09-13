@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.dsvvsv.activities.CreateBoardActivity"
+    android:background="@color/discord_light_black"
 
     >
 
@@ -33,11 +34,21 @@
             android:id="@+id/ivCreateBoard"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/ic_baseline_person_24"
+            android:src="@drawable/ic_baseline_person_grey_24"
             android:clickable="true"
             app:civ_border_color="@color/black"
             app:civ_border_width="0.6dp"
             tools:background="@color/grey"
+            />
+        <TextView
+            android:id="@+id/tvClickToChangeProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to change profile"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
             />
     </FrameLayout>
 
@@ -49,12 +60,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="60dp"
-        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundColor="@color/discord_light_black"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        app:hintTextColor="@color/discord_light_black"
+        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
         app:endIconMode="clear_text"
         app:hintAnimationEnabled="false"
+        app:endIconTint="@color/white"
 
         >
     <androidx.appcompat.widget.AppCompatEditText
@@ -63,6 +76,7 @@
         android:layout_height="wrap_content"
         android:hint="Board Name"
         android:inputType="text"
+        android:textCursorDrawable="@color/light_grey"
         android:textSize="18sp"
         />
     </com.google.android.material.textfield.TextInputLayout>

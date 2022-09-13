@@ -4,11 +4,15 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import com.bumptech.glide.Glide
 import com.example.baigan_theprojectmanagertool.R
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.firebase.FireStoreClass
@@ -44,6 +48,9 @@ class CreateBoardActivity : BaseActivity() {
         ivCreateBoard.setOnClickListener{
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
                 Constants.choosePhotoFromGallery(this)
+                Handler().postDelayed({
+                    tvClickToChangeProfile.visibility = View.GONE
+                },500)
             }else{
                 ActivityCompat.requestPermissions(this,
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
@@ -76,7 +83,7 @@ class CreateBoardActivity : BaseActivity() {
                     .with(this@CreateBoardActivity)
                     .load(mSelectedCreateBoardImageFileUri)
                     .centerCrop()
-                    .placeholder(R.drawable.ic_baseline_person_24)
+                    .placeholder(R.drawable.ic_baseline_person_grey_24)
                     .into(ivCreateBoard)
             }catch (e:IOException){
                 e.printStackTrace()

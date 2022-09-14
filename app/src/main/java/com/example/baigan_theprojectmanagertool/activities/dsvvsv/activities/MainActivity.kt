@@ -4,11 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.core.view.iterator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.baigan_theprojectmanagertool.R
+import com.example.baigan_theprojectmanagertool.activities.dsvvsv.adapters.BoardsItemAdapter
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.firebase.FireStoreClass
+import com.example.baigan_theprojectmanagertool.activities.dsvvsv.models.Board
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.models.User
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.utils.Constants
 import com.google.android.material.navigation.NavigationView
@@ -24,6 +29,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
     companion object{
         const val MY_PROFILE_REQUEST_CODE : Int = 11
+        const val CREATE_BOARD_REQUEST_CODE:Int = 12
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +39,12 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         setUpActionBar()
         navView.setNavigationItemSelectedListener(this)
 
-        FireStoreClass().loadUserData(this)
+        FireStoreClass().loadUserData(this, true)
 
         addBoardBtn.setOnClickListener{
            val intent=  Intent(this, CreateBoardActivity::class.java)
             intent.putExtra(Constants.NAME, mUserName)
-            startActivity(intent)
+            startActivityForResult(intent, CREATE_BOARD_REQUEST_CODE)
         }
 
     }
@@ -72,6 +78,10 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == MY_PROFILE_REQUEST_CODE){
             FireStoreClass().loadUserData(this)
+        }else if(resultCode == Activity.RESULT_OK && requestCode == CREATE_BOARD_REQUEST_CODE){
+            FireStoreClass().getBoardsList(this)
+        }else{
+            Toast.makeText(this, "Could not refresh feed", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -95,7 +105,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         return true
     }
 
-    fun updateNavigationUserDetails(user: User) {
+    fun updateNavigationUserDetails(user: User, readBoardsList : Boolean) {
 
         mUserName = user.name
 
@@ -107,5 +117,34 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
             .into(navUserImg)
 
         tvUserName.text = user.name
+
+        if (readBoardsList){
+            showProgressDialog("Loading your Boards")
+            FireStoreClass().getBoardsList(this)
+        }
+    }
+
+    fun populateBoardsList(boardsList : ArrayList<Board>){
+        hideProgressBar()
+        if (boardsList.size>0){
+            rvBoardsList.visibility = View.VISIBLE
+            tvNoBoardsAvailable.visibility = View.GONE
+
+           rvBoardsList.layoutManager = LinearLayoutManager(this)
+            rvBoardsList.setHasFixedSize(true)
+
+            val adapter = BoardsItemAdapter(this, boardsList)
+            rvBoardsList.adapter = adapter
+
+            adapter.setOnClickListener(object : BoardsItemAdapter.OnClickListener{
+                override fun onClick(position: Int, model: Board) {
+                    super.onClick(position, model)
+                    startActivity(Intent(this@MainActivity, TaskListActivity::class.java))
+                }
+            })
+        }else{
+            rvBoardsList.visibility = View.GONE
+            tvNoBoardsAvailable.visibility = View.VISIBLE
+        }
     }
 }

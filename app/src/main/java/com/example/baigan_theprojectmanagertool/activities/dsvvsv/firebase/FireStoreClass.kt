@@ -37,6 +37,26 @@ class FireStoreClass {
                 Toast.makeText(activity, "Error while creating Board", Toast.LENGTH_SHORT).show()
             }
     }
+
+    fun getBoardsList(activity: MainActivity){
+        mFirestore.collection(Constants.BOARDS)
+            .whereArrayContains(Constants.ASSIGNED_TO, getCurrentUserId())
+            .get()
+            .addOnSuccessListener {
+                document ->
+                val boardList : ArrayList<Board> = ArrayList()
+                for (i in document.documents){
+                    val board = i.toObject(Board::class.java)
+                    board!!.documentId= i.id
+                    boardList.add(board)
+                }
+                activity.populateBoardsList(boardList)
+            }.addOnFailureListener{
+                activity.hideProgressBar()
+                Toast.makeText( activity, "Board not added", Toast.LENGTH_SHORT).show()
+            }
+    }
+
     fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String, Any>){
         mFirestore.collection(Constants.USERS)
             .document(getCurrentUserId())
@@ -50,7 +70,7 @@ class FireStoreClass {
             }
     }
 
-    fun loadUserData(activity : Activity){
+    fun loadUserData(activity : Activity, readBoardsList : Boolean = false){
 
         mFirestore.collection(Constants.USERS)
             .document(getCurrentUserId())
@@ -62,7 +82,7 @@ class FireStoreClass {
                             activity.signInSuccess(loggedInUser)
                         }
                         is MainActivity ->{
-                            activity.updateNavigationUserDetails(loggedInUser)
+                            activity.updateNavigationUserDetails(loggedInUser, readBoardsList)
                         }
                         is MyProfileActivity ->{
                             activity.setUserProfile(loggedInUser)
@@ -80,6 +100,7 @@ class FireStoreClass {
                 }
             }
     }
+
 
     fun getCurrentUserId():String{
         var currentUser = FirebaseAuth.getInstance().currentUser

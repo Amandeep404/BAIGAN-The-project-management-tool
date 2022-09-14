@@ -42,7 +42,7 @@ class SignInActivity : BaseActivity() {
                     FireStoreClass().loadUserData(this)
                 }
             }.addOnFailureListener{exception ->
-                Toast.makeText(this, "Invalid Username or password", Toast.LENGTH_LONG).show()
+                showErrorSnackBar("Invalid E-mail or Password")
                 hideProgressBar()
 
             }

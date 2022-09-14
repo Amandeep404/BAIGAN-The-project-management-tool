@@ -36,6 +36,10 @@ class SignUpActivity : BaseActivity() {
         val email: String = etSignUpEmail.text.toString().trim(){it <= ' '}
         val password: String = etSignUpPassword.text.toString().trim(){it <= ' '}
 
+        if (!isEmailValid(email)){
+            etSignUpName.setError("Invalid Email Id")
+        }
+
         if( validateForm(name, email, password)){
             showProgressDialog("Building You Account")
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->

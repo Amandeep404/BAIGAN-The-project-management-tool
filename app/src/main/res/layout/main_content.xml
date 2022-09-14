@@ -4,14 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.dsvvsv.activities.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:layout_gravity="center"
-         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBoardsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+
+        tools:listitem="@layout/board_item_list"
+        />
+
+        <TextView
+            android:id="@+id/tvNoBoardsAvailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No Boards Available"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addBoardBtn"

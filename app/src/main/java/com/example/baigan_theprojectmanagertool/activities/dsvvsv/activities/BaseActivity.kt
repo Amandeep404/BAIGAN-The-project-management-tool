@@ -56,4 +56,7 @@ open class BaseActivity : AppCompatActivity() {
         snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.error_red))
         snackBar.show()
     }
+    fun isEmailValid(email : CharSequence):Boolean{
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
 }

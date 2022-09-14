@@ -34,7 +34,7 @@
             android:id="@+id/ivCreateBoard"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/ic_baseline_person_grey_24"
+            android:src="@drawable/ic_baseline_person_24"
             android:clickable="true"
             app:civ_border_color="@color/black"
             app:civ_border_width="0.6dp"
@@ -68,6 +68,8 @@
         app:endIconMode="clear_text"
         app:hintAnimationEnabled="false"
         app:endIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+
 
         >
     <androidx.appcompat.widget.AppCompatEditText
@@ -75,9 +77,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Board Name"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:textCursorDrawable="@color/light_grey"
+        android:textColor="@color/white"
         android:textSize="18sp"
+
         />
     </com.google.android.material.textfield.TextInputLayout>
 

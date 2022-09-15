@@ -7,6 +7,7 @@ import com.example.baigan_theprojectmanagertool.activities.dsvvsv.models.Board
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.models.User
 import com.example.baigan_theprojectmanagertool.activities.dsvvsv.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 
@@ -55,6 +56,24 @@ class FireStoreClass {
                 activity.hideProgressBar()
                 Toast.makeText( activity, "Board not added", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    fun getBoardDetails(activity: TaskListActivity, documentId: String){
+        mFirestore.collection(Constants.BOARDS)
+            .document(documentId)
+            .get()
+            .addOnSuccessListener {
+                    document ->
+
+                val board = document.toObject(Board::class.java)!!
+                board.documentId = document.id
+                activity.boardDetails(board)
+
+            }.addOnFailureListener{
+                activity.hideProgressBar()
+                Toast.makeText( activity, "Board not added", Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String, Any>){

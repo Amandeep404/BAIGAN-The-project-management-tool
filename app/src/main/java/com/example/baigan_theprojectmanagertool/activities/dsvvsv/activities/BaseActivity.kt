@@ -4,6 +4,7 @@ import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.baigan_theprojectmanagertool.R
@@ -53,6 +54,8 @@ open class BaseActivity : AppCompatActivity() {
     fun showErrorSnackBar(message:String){
         val snackBar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
         val snackBarView = snackBar.view
+
+
         snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.error_red))
         snackBar.show()
     }

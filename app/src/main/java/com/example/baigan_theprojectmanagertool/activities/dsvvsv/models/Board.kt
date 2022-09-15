@@ -27,6 +27,7 @@ data class Board (
         dest.writeString(createdBy)
         dest.writeStringList(assignedTo)
         dest.writeString(documentId)
+        dest.writeTypedList(taskList)
     }
 
     companion object CREATOR : Parcelable.Creator<Board> {

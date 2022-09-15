@@ -8,14 +8,13 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.DarkActionBar"
+
         >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarMainActivity"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

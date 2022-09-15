@@ -62,11 +62,17 @@ class CreateBoardActivity : BaseActivity() {
         }
 
         btnCreateBoard.setOnClickListener{
-            if (mSelectedCreateBoardImageFileUri!=null){
-                uploadBoardImage()
+            if (etBoardName.text.toString().isNotEmpty()){
+                if (mSelectedCreateBoardImageFileUri!=null && etBoardName.text.toString().isNotEmpty()){
+                    uploadBoardImage()
+                }else{
+
+                    showProgressDialog("Please Wait")
+                    createBoard()
+
+                }
             }else{
-                showProgressDialog("Please Wait")
-                createBoard()
+                showErrorSnackBar("Enter Board Name")
 
             }
         }

@@ -12,9 +12,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#99aab5</color>
     <color name="discord_light_black">#2c2f33</color>
+    <color name="very_light_black">#343434</color>
     <color name="discord_black">#23272a</color>
-    <color name="error_red">#FF9494 </color>
+    <color name="error_red">#F72400 </color>
 
+    <color name="blue">#3498DB</color>
+    <color name="orange">#EB984E</color>
 
     <color name="pastel_green">#77DD77</color>
 </resources>

@@ -36,7 +36,7 @@
             android:layout_height="110dp"
             android:src="@drawable/ic_baseline_person_24"
             android:clickable="true"
-            app:civ_border_color="@color/black"
+            app:civ_border_color="@color/white"
             app:civ_border_width="0.6dp"
             tools:background="@color/grey"
             />
@@ -64,12 +64,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:hintTextColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/grey"
         app:endIconMode="clear_text"
         app:hintAnimationEnabled="false"
         app:endIconTint="@color/white"
         app:boxStrokeColor="@color/white"
-
+        android:theme="@style/cursorTheme"
 
         >
     <androidx.appcompat.widget.AppCompatEditText
@@ -78,9 +78,10 @@
         android:layout_height="wrap_content"
         android:hint="Board Name"
         android:inputType="textCapWords"
-        android:textCursorDrawable="@color/light_grey"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:theme="@style/cursorTheme"
+
 
         />
     </com.google.android.material.textfield.TextInputLayout>

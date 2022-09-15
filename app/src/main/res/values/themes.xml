@@ -16,9 +16,12 @@
 
     </style>
 
-    <style name="AppTheme.DarkActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">    </style>
-    
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"> </style>
+    <style name="cursorTheme">
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+    </style>
 
 
 

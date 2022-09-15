@@ -27,14 +27,16 @@
         android:layout_height="match_parent"
         android:background="@color/discord_light_black"
         android:padding="10dp"
+        android:orientation="vertical"
         >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTaskList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
             />
+        <include layout="@layout/task_item"/>
 
     </LinearLayout>
 </LinearLayout>

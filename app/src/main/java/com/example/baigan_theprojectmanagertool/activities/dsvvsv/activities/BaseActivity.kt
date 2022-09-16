@@ -1,5 +1,6 @@
 package com.example.baigan_theprojectmanagertool.activities.dsvvsv.activities
 
+import android.app.Activity
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,7 +23,7 @@ open class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
     }
-    fun showProgressDialog(text:String){
+    fun showProgressDialog(text:String = "Please Wait"){
         mProgressDialog = Dialog(this)
         mProgressDialog.setContentView(R.layout.progress_dialog)
 
@@ -61,5 +62,9 @@ open class BaseActivity : AppCompatActivity() {
     }
     fun isEmailValid(email : CharSequence):Boolean{
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    fun toast(activity:Activity, text:String){
+        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
     }
 }

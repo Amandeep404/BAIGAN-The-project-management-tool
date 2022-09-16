@@ -76,6 +76,23 @@ class FireStoreClass {
 
     }
 
+    fun addUpdateTaskList(activity: TaskListActivity, board: Board){
+        val taskListHashMap = HashMap<String, Any>()
+        taskListHashMap[Constants.TASK_LIST] = board.taskList
+
+        mFirestore.collection(Constants.BOARDS)
+            .document(board.documentId)
+            .update(taskListHashMap)
+            .addOnSuccessListener {
+                activity.addUpdateTaskListSuccess()
+            }
+            .addOnFailureListener{
+                exception ->
+                activity.hideProgressBar()
+                Toast.makeText(activity, "Error while creating Board", Toast.LENGTH_SHORT).show()
+            }
+    }
+
     fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String, Any>){
         mFirestore.collection(Constants.USERS)
             .document(getCurrentUserId())

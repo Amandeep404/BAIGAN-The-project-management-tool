@@ -6,6 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="light_black">#191919</color>
+    <color name="deep_black">#000000</color>
     <color name="light_grey">#F1F1F1</color>
     
     <color name="discord_purple">#7289da</color>
@@ -14,7 +16,8 @@
     <color name="discord_light_black">#2c2f33</color>
     <color name="very_light_black">#343434</color>
     <color name="discord_black">#23272a</color>
-    <color name="error_red">#F72400 </color>
+    <color name="error_red">#C70000 </color>
+    <color name="dark_purple">#556fbd</color>
 
     <color name="blue">#3498DB</color>
     <color name="orange">#EB984E</color>

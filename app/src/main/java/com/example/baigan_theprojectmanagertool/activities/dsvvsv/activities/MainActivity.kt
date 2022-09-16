@@ -80,8 +80,6 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
             FireStoreClass().loadUserData(this)
         }else if(resultCode == Activity.RESULT_OK && requestCode == CREATE_BOARD_REQUEST_CODE){
             FireStoreClass().getBoardsList(this)
-        }else{
-            Toast.makeText(this, "Could not refresh feed", Toast.LENGTH_SHORT).show()
         }
     }
 

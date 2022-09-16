@@ -18,6 +18,7 @@ object Constants {
     const val MOBILE: String = "mobile"
     const val ASSIGNED_TO: String = "assignedTo"
     const val DOCUMENT_ID : String = "documentId"
+    const val TASK_LIST : String = "taskList"
 
     const val pickImage = 1
     const val READ_STORAGE_PERMISSION_CODE = 2

@@ -1,5 +1,11 @@
 # BAIGAN-The-project-management-tool
 
+<img src="https://user-images.githubusercontent.com/107784525/204734382-ebb04692-d02e-40e0-8be0-bcf45a52609b.png" alt="drawing" style="width:450px"/>
+
+
+A project manager tool to keep an eye on all your ongoing, pending and upcoming tasks to increase your productivity.This App uses Firebase as the database and also includes Firebase Authentication. Glide for easy loading of images all over the application.
+
+
 ## App Screenshots: 
 
 <img src="https://user-images.githubusercontent.com/107784525/196007596-d4f5bca7-8a6a-4c83-9efa-6d0b9089e24c.jpeg" alt="drawing" style="width:200px"/>    <img src="https://user-images.githubusercontent.com/107784525/196007639-38e263a7-b719-4ccf-8c1d-3dfcccc7daf1.jpeg" style="width:200px"/>    <img src="https://user-images.githubusercontent.com/107784525/196007669-678c34fe-8515-46df-8d7b-444a396a258f.jpeg" style="width:200px"/>
